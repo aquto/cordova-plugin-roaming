@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.plugin.roaming"
+      version="0.0.1">
+
+    <name>Roaming</name>
+    <description>Roaming plugin for Android</description>
+    <license>MIT</license>
+    <keywords>cordova,roaming</keywords>
+
+    <js-module src="www/roaming.js" name="RoamingPlugin">
+        <clobbers target="window.plugins.roaming" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Roaming">
+              <param name="android-package" value="com.plugin.Roaming.RoamingPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+
+        <source-file src="src/android/RoamingPlugin.java" target-dir="src/com/plugin/Roaming" />
+
+    </platform>
+
+
+</plugin>
