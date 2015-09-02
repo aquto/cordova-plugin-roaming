@@ -3,5 +3,8 @@ var exec = require('cordova/exec');
 module.exports = {
     get: function(success, error, options) {
         exec(success, error, "Roaming", "get", [options]);
+    },
+    getNetworkRoaming: function(success, error, options) {
+        exec(success, error, "Roaming", "getNetworkRoaming", [options]);
     }
 };
