@@ -4,13 +4,13 @@ To install this plugin, follow the [Command-line Interface Guide](http://cordova
 
 If you are not using the Cordova Command-line Interface, follow [Using Plugman to Manage Plugins](http://cordova.apache.org/docs/en/edge/guide_plugin_ref_plugman.md.html).
 
-Exposes 1 methods:
+# Exposed methods:
 
-- __get__: returns NetworkInfo.isRoaming as a bool
+Each method takes two callback functions, a success and an error function.
 
-Each method takes two arguments, success and error functions.
+## 1: __get__ returns NetworkInfo.isRoaming as a bool
 
-Usage examples:
+Usage example:
 
     window.plugins.roaming.get(
       function(roaming) {
@@ -19,4 +19,20 @@ Usage examples:
       function() {
         console.log("error loading roaming status");
       }
+    );
+
+## 2: __getNetworkRoaming__ returns telephonyManager.isNetworkRoaming() as a bool
+
+More information: 
+http://developer.android.com/reference/android/net/NetworkInfo.html#isRoaming()
+
+Usage example:
+
+    window.plugins.roaming.getNetworkRoaming(
+        function(roaming) {
+          console.log('Network roaming status: ' + roaming);
+        },
+        function() {
+          console.log('Error loading roaming status');
+        }
     );
