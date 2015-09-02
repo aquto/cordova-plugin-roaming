@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.plugin.roaming"
-      version="0.0.1">
+      version="0.0.2">
 
     <name>Roaming</name>
     <description>Roaming plugin for Android</description>
@@ -29,6 +29,4 @@
         <source-file src="src/android/RoamingPlugin.java" target-dir="src/com/plugin/Roaming" />
 
     </platform>
-
-
 </plugin>
