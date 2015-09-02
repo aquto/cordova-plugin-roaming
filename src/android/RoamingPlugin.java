@@ -1,6 +1,5 @@
 package com.plugin.Roaming;
 
-
 import org.json.JSONArray;
 
 import android.content.Context;
@@ -33,9 +32,11 @@ public class RoamingPlugin extends CordovaPlugin {
         boolean result = false;
 
         if (action.equals("get")) {
+            NetworkInfo info = sockMan.getActiveNetworkInfo();
+
             if (info != null) {
                 result = info.isRoaming();
-                Log.e("TEST", "Roaming ConnectivityManager" + result);
+                Log.e("Roaming", "ConnectivityManager" + result);
             }
             else {
                status = PluginResult.Status.ERROR;
@@ -43,12 +44,11 @@ public class RoamingPlugin extends CordovaPlugin {
 
         }
         // @see: http://developer.android.com/reference/android/net/NetworkInfo.html#isRoaming()
-        else if(action.equals("getNetworkRoaming"){
-            if (info != null) {
+        else if(action.equals("getNetworkRoaming")){
+            try {
                 result = telephonyManager.isNetworkRoaming();
-                Log.e("TEST", "Roaming TelephonyManager " + result);
-            }
-            else {
+                Log.e("Roaming", "TelephonyManager " + result);
+            } catch (Exception e) {
                 status = PluginResult.Status.ERROR;
             }
         }
